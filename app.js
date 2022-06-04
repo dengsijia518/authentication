@@ -7,7 +7,6 @@ const mongoose = require("mongoose")
 const app = express();
 const encrypt = require("mongoose-encryption")
 
-console.log(process.env.API_KEY)
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
@@ -21,7 +20,6 @@ const userScehma = new mongoose.Schema({
   email: String,
   password:String
 });
-
 
 userScehma.plugin(encrypt,{secret:process.env.SECRET, encryptedFields:['password']});
 
